@@ -17,12 +17,12 @@ let Vue
 const install = function(_Vue){
     Vue = _Vue;
     const Object = {
-        ...ARRAY,
-        ...BASIC,
-        ...RANDOM,
-        ...SORT,
-        ...STRING,
-        ...TIME
+        ...ARRAY.default,
+        ...BASIC.default,
+        ...RANDOM.default,
+        ...SORT.default,
+        ...STRING.default,
+        ...TIME.default
     };
     // 全局变量
     Object.VERSION = '1.0.0';
