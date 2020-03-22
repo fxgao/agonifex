@@ -4,7 +4,6 @@
  */
 
 // 引入子模块
-// import * as AJAX from './ajax/index'
 import * as ARRAY from './array/index'
 import * as BASIC from './basic/index'
 import * as RANDOM from './random/index'
@@ -12,11 +11,12 @@ import * as SORT from './sort/index'
 import * as STRING from './string/index'
 import * as TIME from './time/index'
 
+console.log(ARRAY)
+
 let Vue
 const install = function(_Vue){
     Vue = _Vue;
     const Object = {
-        // ...AJAX,
         ...ARRAY,
         ...BASIC,
         ...RANDOM,
@@ -29,7 +29,7 @@ const install = function(_Vue){
     // 当前环境
     Object.EVN = process.env.NODE_ENV;
     // 当前域名
-    Object.SITDOMAIN = EVN == 'development' ? '' : window.location.protocol + '//' + window.location.hostname + '/';
+    Object.SITDOMAIN = Object.EVN == 'development' ? '' : window.location.protocol + '//' + window.location.hostname + '/';
 
     Vue.prototype.$utils = Object;
 }

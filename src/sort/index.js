@@ -1,4 +1,4 @@
-const quickSort = function (arr) {
+function quickSort(arr) {
     if (arr.length <= 1) { return arr; }
     var pivotIndex = Math.floor(arr.length / 2);   //基准位置（理论上可任意选取）
     var pivot = arr.splice(pivotIndex, 1)[0];  //基准数
@@ -20,7 +20,7 @@ const quickSort = function (arr) {
  * （2）如果目标元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半区域查找，然后重复第一步的操作。
  * （3）如果某一步数组为空，则表示找不到目标元素。
  */
-const binarySearch = function (arr, low, high, key) {
+function binarySearch(arr, low, high, key) {
     if (low > high) {
         return -1;
     }

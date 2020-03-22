@@ -6,7 +6,7 @@ import * as IMAGE from './image'
  * 防抖函数：当一个函数在一定间隔内没有被调用时，才允许执行被调用方法。
  * func：要执行的函数； wait：执行函数之间的间隔； immediate：首次触发是否立即执行一次；
 */
-const debounce = function (func, wait, immediate) {
+function debounce(func, wait, immediate) {
     var timeout, args, context, timestamp, result;
     var later = function() {
         var last = _.now() - timestamp;
@@ -43,7 +43,7 @@ const debounce = function (func, wait, immediate) {
  * leading= false；trailing：true：调用需要等待wait时间，wait期间如果再次调用，在周期后边缘再次执行
  * leading= false；trailing：false：调用需要等待wait时间，wait期间如果再次调用，在周期后边缘不会执行
  */
-const throttle = function (func, wait, options) {
+function throttle (func, wait, options) {
     var context, args, result;
     var timeout = null;
     var previous = 0;
@@ -181,6 +181,10 @@ EventEmitter.prototype.listeners = function (type) {
     return this._events[type];
 };
 
+/**
+ * 深克隆
+ * @param {源对象} source 
+ */
 // 首先实现一个类型判断函数
 const isType = (obj, type) => {
     if (typeof obj !== 'object') return false;
@@ -201,12 +205,7 @@ const isType = (obj, type) => {
     }
     return flag;
 };
-
-/**
- * 深克隆
- * @param {源对象} source 
- */
-const deepClone = function(source) {
+function deepClone(source) {
     // 维护两个储存循环引用的数组
     const parents = [];
     const children = [];

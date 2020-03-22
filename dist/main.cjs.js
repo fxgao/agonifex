@@ -292,9 +292,9 @@ var process = {
 };
 
 // 数组去重
-var uniqueArr = function uniqueArr(arr) {
+function uniqueArr(arr) {
   return Array.from(new Set(arr));
-};
+}
 
 function cleanArray(actual) {
   var newArray = [];
@@ -307,6 +307,7 @@ function cleanArray(actual) {
 
   return newArray;
 }
+
 var index = {
   uniqueArr: uniqueArr,
   cleanArray: cleanArray
@@ -314,7 +315,6 @@ var index = {
 
 var ARRAY = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  cleanArray: cleanArray,
   'default': index
 });
 
@@ -352,7 +352,7 @@ function getBase64(img) {
   return dataURL;
 }
 
-var toBase64Image = function toBase64Image(imgUrl) {
+function toBase64Image(imgUrl) {
   var image = new Image();
   image.crossOrigin = '';
   image.src = imgUrl;
@@ -361,8 +361,7 @@ var toBase64Image = function toBase64Image(imgUrl) {
     var base64 = getBase64(image);
     return base64;
   };
-};
-
+}
 var image = {
   toBase64Image: toBase64Image
 };
@@ -377,7 +376,7 @@ var IMAGE = /*#__PURE__*/Object.freeze({
  * func：要执行的函数； wait：执行函数之间的间隔； immediate：首次触发是否立即执行一次；
 */
 
-var debounce = function debounce(func, wait, immediate) {
+function debounce(func, wait, immediate) {
   var timeout, args, context, timestamp, result;
 
   var later = function later() {
@@ -409,7 +408,7 @@ var debounce = function debounce(func, wait, immediate) {
 
     return result;
   };
-};
+}
 /**
  * 节流函数：每隔某个时间段去执行某个函数，防止函数的过多执行
  * leading：（Boolean）是否立即执行
@@ -420,8 +419,7 @@ var debounce = function debounce(func, wait, immediate) {
  * leading= false；trailing：false：调用需要等待wait时间，wait期间如果再次调用，在周期后边缘不会执行
  */
 
-
-var throttle = function throttle(func, wait, options) {
+function throttle(func, wait, options) {
   var context, args, result;
   var timeout = null;
   var previous = 0;
@@ -464,8 +462,7 @@ var throttle = function throttle(func, wait, options) {
   };
 
   return throttled;
-}; // 发布订阅模式
-
+}
 
 function EventEmitter() {
   // 用Object.create(null)代替空对象{},不继承原型链
@@ -575,7 +572,12 @@ EventEmitter.prototype.removeAllListener = function () {
 
 EventEmitter.prototype.listeners = function (type) {
   return this._events[type];
-}; // 首先实现一个类型判断函数
+};
+/**
+ * 深克隆
+ * @param {源对象} source 
+ */
+// 首先实现一个类型判断函数
 
 
 var isType = function isType(obj, type) {
@@ -601,13 +603,8 @@ var isType = function isType(obj, type) {
 
   return flag;
 };
-/**
- * 深克隆
- * @param {源对象} source 
- */
 
-
-var deepClone = function deepClone(source) {
+function deepClone(source) {
   // 维护两个储存循环引用的数组
   var parents = [];
   var children = [];
@@ -650,8 +647,7 @@ var deepClone = function deepClone(source) {
   };
 
   return _clone(source);
-};
-
+}
 var index$1 = _objectSpread2({
   debounce: debounce,
   throttle: throttle,
@@ -665,6 +661,31 @@ var BASIC = /*#__PURE__*/Object.freeze({
 });
 
 // 生成随机数
+function randomNum(integerLen, decimalLen) {
+  var firstIntegerOne = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+  if (arguments.length === 0 || Object.prototype.toString.call(integerLen) !== '[object Number]' || Object.prototype.toString.call(decimalLen) !== '[object Number]') {
+    return null;
+  }
+
+  var resStr;
+  var resInteger = firstIntegerOne ? Math.floor((Math.random() + 1) * Math.pow(10, integerLen - 1)) : Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, integerLen - 1));
+  var resDecimal = Math.random().toFixed(decimalLen);
+
+  if (integerLen > 0) {
+    if (decimalLen > 0) {
+      resStr = resInteger + resDecimal;
+    } else {
+      resStr = resInteger;
+    }
+  } else {
+    if (decimalLen > 0) {
+      resStr = resDecimal;
+    }
+  }
+
+  return resStr;
+} // 生成 [n,m] 的随机整数
 
 
 function randomRangeIntegerNum(minNum, maxNum) {
@@ -681,7 +702,8 @@ function randomRangeIntegerNum(minNum, maxNum) {
 }
 
 var index$2 = {
-  randomRangeIntegerNum: randomRangeIntegerNum
+  randomRangeIntegerNum: randomRangeIntegerNum,
+  randomNum: randomNum
 };
 
 var RANDOM = /*#__PURE__*/Object.freeze({
@@ -689,7 +711,7 @@ var RANDOM = /*#__PURE__*/Object.freeze({
   'default': index$2
 });
 
-var quickSort = function quickSort(arr) {
+function quickSort(arr) {
   if (arr.length <= 1) {
     return arr;
   }
@@ -710,7 +732,7 @@ var quickSort = function quickSort(arr) {
   }
 
   return quickSort(left).concat([pivot], quickSort(right)); //链接左数组、基准数构成的数组、右数组
-};
+}
 /**
  * 二分法查找，也称折半查找，是一种在有序数组中查找特定元素的搜索算法。查找过程可以分为以下步骤：
  * （1）首先，从有序数组的中间的元素开始搜索，如果该元素正好是目标元素（即要查找的元素），则搜索过程结束，否则进行下一步。
@@ -718,8 +740,7 @@ var quickSort = function quickSort(arr) {
  * （3）如果某一步数组为空，则表示找不到目标元素。
  */
 
-
-var binarySearch = function binarySearch(arr, low, high, key) {
+function binarySearch(arr, low, high, key) {
   if (low > high) {
     return -1;
   }
@@ -735,8 +756,7 @@ var binarySearch = function binarySearch(arr, low, high, key) {
     low = mid + 1;
     return binarySearch(arr, low, high, key);
   }
-};
-
+}
 var index$3 = {
   quickSort: quickSort,
   binarySearch: binarySearch
@@ -747,13 +767,13 @@ var SORT = /*#__PURE__*/Object.freeze({
   'default': index$3
 });
 
-var html2Text = function html2Text(val) {
+function html2Text(val) {
   var div = document.createElement('div');
   div.innerHTML = val;
   return div.textContent || div.innerText;
-};
+}
 
-var jsonStringify = function jsonStringify(arg) {
+function jsonStringify(arg) {
   var qsArr = [];
 
   for (var k in arg) {
@@ -769,8 +789,7 @@ var jsonStringify = function jsonStringify(arg) {
   }
 
   return qsArr.join('&');
-};
-
+}
 var index$4 = {
   html2Text: html2Text,
   jsonStringify: jsonStringify
@@ -854,6 +873,7 @@ var TIME = /*#__PURE__*/Object.freeze({
   'default': index$5
 });
 
+console.log(ARRAY);
 var Vue;
 
 var install = function install(_Vue) {
@@ -866,7 +886,7 @@ var install = function install(_Vue) {
 
   Object.EVN = process.env.NODE_ENV; // 当前域名
 
-  Object.SITDOMAIN = EVN == 'development' ? '' : window.location.protocol + '//' + window.location.hostname + '/';
+  Object.SITDOMAIN = Object.EVN == 'development' ? '' : window.location.protocol + '//' + window.location.hostname + '/';
   Vue.prototype.$utils = Object;
 };
 

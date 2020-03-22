@@ -1,9 +1,9 @@
 // 数组去重
-const uniqueArr = function (arr) {
+function uniqueArr (arr) {
     return Array.from(new Set(arr))
 }
 
-export function cleanArray(actual) {
+function cleanArray(actual) {
     const newArray = []
     for (let i = 0; i < actual.length; i++) {
       if (actual[i]) {
@@ -14,6 +14,6 @@ export function cleanArray(actual) {
 }
 
 export default {
-    uniqueArr,
-    cleanArray
+  uniqueArr,
+  cleanArray
 }

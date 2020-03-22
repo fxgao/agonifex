@@ -9,7 +9,7 @@ function getBase64(img) {
     return dataURL;
   }
   
-const toBase64Image = function (imgUrl) {
+function toBase64Image(imgUrl) {
     var image = new Image();
     image.crossOrigin = '';
     image.src = imgUrl;
@@ -19,6 +19,6 @@ const toBase64Image = function (imgUrl) {
     }
 };
 
-export default{
-    toBase64Image
+export default {
+  toBase64Image
 }

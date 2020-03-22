@@ -10,6 +10,6 @@ function backToTop(slow=true){
     }
 }
 
-export default{
+export default {
     backToTop
 }

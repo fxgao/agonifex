@@ -39,5 +39,6 @@ function randomRangeIntegerNum(minNum,maxNum){
 
 
 export default {
-    randomRangeIntegerNum
+    randomRangeIntegerNum,
+    randomNum
 }

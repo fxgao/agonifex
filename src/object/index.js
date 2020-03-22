@@ -1,4 +1,4 @@
-const objectMerge = function (target, source) {
+function objectMerge(target, source) {
     /* Merges two  objects, giving the last one precedence */
     if (typeof target !== 'object') {
       target = {}
@@ -17,7 +17,7 @@ const objectMerge = function (target, source) {
     return target
 }
 
-const param2Obj = function (url) {
+function param2Obj(url) {
     const search = url.split('?')[1]
     if (!search) {
       return {}
