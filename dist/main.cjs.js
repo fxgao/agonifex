@@ -655,11 +655,6 @@ var index$1 = _objectSpread2({
   deepClone: deepClone
 }, SCROLL, {}, IMAGE);
 
-var BASIC = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index$1
-});
-
 // 生成随机数
 function randomNum(integerLen, decimalLen) {
   var firstIntegerOne = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
@@ -705,11 +700,6 @@ var index$2 = {
   randomRangeIntegerNum: randomRangeIntegerNum,
   randomNum: randomNum
 };
-
-var RANDOM = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index$2
-});
 
 function quickSort(arr) {
   if (arr.length <= 1) {
@@ -762,11 +752,6 @@ var index$3 = {
   binarySearch: binarySearch
 };
 
-var SORT = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index$3
-});
-
 function html2Text(val) {
   var div = document.createElement('div');
   div.innerHTML = val;
@@ -794,11 +779,6 @@ var index$4 = {
   html2Text: html2Text,
   jsonStringify: jsonStringify
 };
-
-var STRING = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index$4
-});
 
 function parseTime(date, cFormat) {
   var time_str;
@@ -868,18 +848,13 @@ var index$5 = {
   parseTime: parseTime
 };
 
-var TIME = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index$5
-});
-
 console.log(ARRAY);
 var Vue;
 
 var install = function install(_Vue) {
   Vue = _Vue;
 
-  var Object = _objectSpread2({}, ARRAY, {}, BASIC, {}, RANDOM, {}, SORT, {}, STRING, {}, TIME); // 全局变量
+  var Object = _objectSpread2({}, index, {}, index$1, {}, index$2, {}, index$3, {}, index$4, {}, index$5); // 全局变量
 
 
   Object.VERSION = '1.0.0'; // 当前环境
