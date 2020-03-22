@@ -859,7 +859,7 @@ var Vue;
 var install = function install(_Vue) {
   Vue = _Vue;
 
-  var Object = _objectSpread2({}, AJAX, {}, ARRAY, {}, BASIC, {}, RANDOM, {}, SORT, {}, STRING, {}, TIME); // 全局变量
+  var Object = _objectSpread2({}, ARRAY, {}, BASIC, {}, RANDOM, {}, SORT, {}, STRING, {}, TIME); // 全局变量
 
 
   Object.VERSION = '1.0.0'; // 当前环境

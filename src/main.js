@@ -4,6 +4,7 @@
  */
 
 // 引入子模块
+// import * as AJAX from './ajax/index'
 import * as ARRAY from './array/index'
 import * as BASIC from './basic/index'
 import * as RANDOM from './random/index'
@@ -15,7 +16,7 @@ let Vue
 const install = function(_Vue){
     Vue = _Vue;
     const Object = {
-        ...AJAX,
+        // ...AJAX,
         ...ARRAY,
         ...BASIC,
         ...RANDOM,
