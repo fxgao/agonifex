@@ -1,0 +1,44 @@
+{
+  "name": "agonifex",
+  "version": "0.1.0",
+  "private": false,
+  "description": "a functional base tool library",
+  "main": "main.cjs.js",
+  "browser": "main.js",
+  "scripts": {
+    "test": "echo \"  Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "build:prod": "cross-env BABEL_ENV=production npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxgao/agonifex.git"
+  },
+  "keywords": [
+    "tool"
+  ],
+  "author": "fxgao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fxgao/agonifex/issues"
+  },
+  "homepage": "https://github.com/fxgao/agonifex#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-core": "^7.0.0-bridge",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^6.2.1",
+    "rollup-plugin-local-resolve": "^1.0.7",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "loadsh": "0.0.4",
+    "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
+    "terser": "^4.6.7"
+  }
+}
