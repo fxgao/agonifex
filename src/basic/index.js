@@ -254,6 +254,6 @@ export default {
     throttle,
     EventEmitter,
     deepClone,
-    ...SCROLL,
-    ...IMAGE
+    ...SCROLL.default,
+    ...IMAGE.default
 }

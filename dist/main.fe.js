@@ -332,11 +332,6 @@ var agonifex = (function () {
     backToTop: backToTop
   };
 
-  var SCROLL = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    'default': scroll
-  });
-
   function getBase64(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -361,11 +356,6 @@ var agonifex = (function () {
   var image = {
     toBase64Image: toBase64Image
   };
-
-  var IMAGE = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    'default': image
-  });
 
   /**
    * 防抖函数：当一个函数在一定间隔内没有被调用时，才允许执行被调用方法。
@@ -649,7 +639,7 @@ var agonifex = (function () {
     throttle: throttle,
     EventEmitter: EventEmitter,
     deepClone: deepClone
-  }, SCROLL, {}, IMAGE);
+  }, scroll, {}, image);
 
   // 生成随机数
   function randomNum(integerLen, decimalLen) {

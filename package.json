@@ -1,6 +1,6 @@
 {
   "name": "agonifex",
-  "version": "0.1.13",
+  "version": "0.1.15",
   "private": false,
   "description": "a functional base tool library",
   "main": "dist/main.cjs.js",
