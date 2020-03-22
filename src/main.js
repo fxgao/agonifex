@@ -11,8 +11,6 @@ import * as SORT from './sort/index'
 import * as STRING from './string/index'
 import * as TIME from './time/index'
 
-console.log(ARRAY)
-
 let Vue
 const install = function(_Vue){
     Vue = _Vue;

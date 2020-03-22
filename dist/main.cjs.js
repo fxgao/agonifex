@@ -313,11 +313,6 @@ var index = {
   cleanArray: cleanArray
 };
 
-var ARRAY = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': index
-});
-
 function backToTop() {
   var slow = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
   var c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -848,7 +843,6 @@ var index$5 = {
   parseTime: parseTime
 };
 
-console.log(ARRAY);
 var Vue;
 
 var install = function install(_Vue) {
